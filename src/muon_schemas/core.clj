@@ -30,7 +30,7 @@
 (s/defschema EventTemplate
   {:stream-name s/Str
    :event-type s/Str
-   (s/optional-key :caused-by) (s/maybe s/Long)
+   (s/optional-key :caused-by) (s/maybe Long)
    (s/optional-key :caused-by-relation) (s/maybe s/Str)
    :payload FreeSchema
    :service-id s/Str
