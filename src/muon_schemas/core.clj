@@ -64,6 +64,8 @@
    :processed Long
    :last-event Event
    :reduction ReductionFunction
+   :mem-used Long
+   :last-measured Long
    :stream-name s/Str
    :avg-time Double
    :avg-global-time Double
