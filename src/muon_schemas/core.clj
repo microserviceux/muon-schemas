@@ -62,7 +62,7 @@
    :language (s/maybe (s/enum :clojure :javascript :js-experimental))
    :initial-value ReductionValue
    :processed Long
-   :last-event Event
+   :last-event (s/maybe Event)
    :reduction ReductionFunction
    :mem-used Long
    :last-measured Long
@@ -79,7 +79,7 @@
    :language (s/maybe (s/enum :clojure :javascript :js-experimental))
    :initial-value ReductionValue
    :processed Long
-   :last-event Event
+   :last-event (s/maybe Event)
    :reduction ReductionFunction
    :mem-used Long
    :last-measured Long
