@@ -35,7 +35,7 @@
    :payload FreeSchema
    :service-id s/Str
    (s/optional-key :event-time) (s/maybe Long)
-   (s/optiona-lkey :order-id) (s/maybe Long)
+   (s/optional-key :order-id) (s/maybe Long)
    (s/optional-key :schema) (s/maybe s/Str)})
 
 (s/defschema Event
