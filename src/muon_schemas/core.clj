@@ -4,7 +4,7 @@
 ;; Schemas
 (s/defschema StreamInfo
   {:stream-name s/Str
-   :total-events Long})
+   :total-events s/Num})
 
 (s/defschema StreamInfoMap
   {:streams [StreamInfo]})
@@ -30,23 +30,23 @@
 (s/defschema EventTemplate
   {:stream-name s/Str
    :event-type s/Str
-   (s/optional-key :caused-by) (s/maybe Long)
+   (s/optional-key :caused-by) (s/maybe s/Num)
    (s/optional-key :caused-by-relation) (s/maybe s/Str)
    :payload FreeSchema
    :service-id s/Str
-   (s/optional-key :event-time) (s/maybe Long)
-   (s/optional-key :order-id) (s/maybe Long)
+   (s/optional-key :event-time) (s/maybe s/Num)
+   (s/optional-key :order-id) (s/maybe s/Num)
    (s/optional-key :schema) (s/maybe s/Str)})
 
 (s/defschema Event
   {:stream-name s/Str
    :event-type s/Str
-   (s/optional-key :caused-by) (s/maybe Long)
+   (s/optional-key :caused-by) (s/maybe s/Num)
    (s/optional-key :caused-by-relation) (s/maybe s/Str)
    :payload FreeSchema
    :service-id s/Str
-   :event-time Long
-   :order-id Long
+   :event-time s/Num
+   :order-id s/Num
    (s/optional-key :schema) (s/maybe s/Str)})
 
 (s/defschema ReductionFunction
@@ -67,15 +67,15 @@
   {:fn s/Str
    :last-error (s/maybe s/Str)
    :current-value (s/maybe ReductionValue)
-   :init-time Long
+   :init-time s/Num
    :status (s/enum :running :failed)
    :language (s/maybe (s/enum :clojure :javascript :js-experimental))
    :initial-value ReductionValue
-   :processed Long
+   :processed s/Num
    :last-event (s/maybe Event)
    :reduction ReductionFunction
-   :mem-used Long
-   :last-measured Long
+   :mem-used s/Num
+   :last-measured s/Num
    :stream-name s/Str
    :avg-time Double
    :avg-global-time Double
@@ -84,15 +84,15 @@
 (s/defschema Projection
   {:fn s/Str
    :last-error (s/maybe s/Str)
-   :init-time Long
+   :init-time s/Num
    :status (s/enum :running :failed)
    :language (s/maybe (s/enum :clojure :javascript :js-experimental))
    :initial-value ReductionValue
-   :processed Long
+   :processed s/Num
    :last-event (s/maybe Event)
    :reduction ReductionFunction
-   :mem-used Long
-   :last-measured Long
+   :mem-used s/Num
+   :last-measured s/Num
    :stream-name s/Str
    :avg-time Double
    :avg-global-time Double
