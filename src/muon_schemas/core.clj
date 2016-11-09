@@ -39,7 +39,15 @@
    (s/optional-key :schema) (s/maybe s/Str)})
 
 (s/defschema Event
-  (merge EventTemplate {:order-id Long :event-time Long}))
+  {:stream-name s/Str
+   :event-type s/Str
+   (s/optional-key :caused-by) (s/maybe Long)
+   (s/optional-key :caused-by-relation) (s/maybe s/Str)
+   :payload FreeSchema
+   :service-id s/Str
+   :event-time Long
+   :order-id Long
+   (s/optional-key :schema) (s/maybe s/Str)})
 
 (s/defschema ReductionFunction
   ;; TODO: Improve
